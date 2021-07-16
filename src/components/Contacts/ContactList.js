@@ -1,9 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import contactsOperations from "../../redux/contacts/contacts-operations";
 import styles from "./Contacts.module.css";
 import { ReactComponent as CloseIcon } from "../../icons/delete.svg";
+import {contactsSelector, contactsOperations} from "../../redux/contacts";
 
 const ContactList = ({ contactList, onDeleteContact }) => (
   <>
@@ -29,15 +29,9 @@ ContactList.propTypes = {
   onDeleteContact: PropTypes.func.isRequired,
 };
 
-const getVisibleContacts = (filter, items) => {
-  const filterLowerCase = filter.toLowerCase();
-  return items.filter(({ name }) =>
-    name.toLowerCase().includes(filterLowerCase)
-  );
-};
 
-const mapStateToProps = ({ contacts: { filter, items } }) => ({
-  contactList: getVisibleContacts(filter, items),
+const mapStateToProps = (state) => ({
+  contactList: contactsSelector.getVisibleContacts(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({

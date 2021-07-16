@@ -11,14 +11,21 @@ const fetchContacts = () => dispatch => {
 }
 
 
-const submit = ({name, number}) => dispatch => {
+const submit = ({name, number}) => async dispatch => {
     const item = {name, number};
     
     dispatch(actions.addContactRequest());
 
-    axios.post('http://localhost:4040/contacts', item)
-    .then(({data}) =>dispatch(actions.addContactSuccess(data)))
-    .catch(error => dispatch(actions.addContactsError(error)))
+    try {
+        const {data} = await axios.post('http://localhost:4040/contacts', item);
+        dispatch(actions.addContactSuccess(data))
+    } catch (error) {
+        dispatch(actions.addContactsError(error))
+    }
+
+    // axios.post('http://localhost:4040/contacts', item)
+    // .then(({data}) =>dispatch(actions.addContactSuccess(data)))
+    // .catch(error => dispatch(actions.addContactsError(error)))
 };
 
 

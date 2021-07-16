@@ -1,7 +1,7 @@
 import { Component } from "react";
 import { connect } from "react-redux";
 import shortid from "shortid";
-import contactsOperations from "../../redux/contacts/contacts-operations";
+import {contactsOperations} from "../../redux/contacts";
 
 import styles from "./Contacts.module.css";
 

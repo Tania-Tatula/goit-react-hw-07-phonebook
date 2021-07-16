@@ -4,7 +4,7 @@ import Filter from "./components/Contacts/Filter";
 import ContactList from "./components/Contacts/ContactList";
 import styles from "./components/Contacts/Contacts.module.css";
 import { connect } from "react-redux";
-import contactsOperations from "./redux/contacts/contacts-operations";
+import {contactsOperations} from "./redux/contacts";
 
 class App extends Component {
 componentDidMount(){

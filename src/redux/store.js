@@ -10,7 +10,7 @@ import {
   PURGE,
   REGISTER,
 } from "redux-persist";
-import contactsReduser from "./contacts/contacts-reduser";
+import {contactsReduser} from "./contacts";
 
 
 const middleware = [
