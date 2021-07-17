@@ -4,12 +4,12 @@ import Filter from "./components/Contacts/Filter";
 import ContactList from "./components/Contacts/ContactList";
 import styles from "./components/Contacts/Contacts.module.css";
 import { connect } from "react-redux";
-import {contactsOperations} from "./redux/contacts";
+import { contactsOperations } from "./redux/contacts";
 
 class App extends Component {
-componentDidMount(){
-  this.props.fetchContacts();
-}
+  componentDidMount() {
+    this.props.fetchContacts();
+  }
 
   render() {
     return (
@@ -27,6 +27,5 @@ componentDidMount(){
 const mapDispatchToProps = (dispatch) => ({
   fetchContacts: () => dispatch(contactsOperations.fetchContacts()),
 });
-
 
 export default connect(null, mapDispatchToProps)(App);

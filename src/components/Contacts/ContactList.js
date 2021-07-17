@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import styles from "./Contacts.module.css";
 import { ReactComponent as CloseIcon } from "../../icons/delete.svg";
-import {contactsSelector, contactsOperations} from "../../redux/contacts";
+import { contactsSelector, contactsOperations } from "../../redux/contacts";
 
 const ContactList = ({ contactList, onDeleteContact }) => (
   <>
@@ -28,7 +28,6 @@ ContactList.propTypes = {
   contactList: PropTypes.array.isRequired,
   onDeleteContact: PropTypes.func.isRequired,
 };
-
 
 const mapStateToProps = (state) => ({
   contactList: contactsSelector.getVisibleContacts(state),

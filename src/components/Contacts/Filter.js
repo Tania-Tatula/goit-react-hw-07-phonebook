@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import {contactsActions, contactsSelector} from "../../redux/contacts";
+import { contactsActions, contactsSelector } from "../../redux/contacts";
 
 import styles from "./Contacts.module.css";
 
